@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task-2_4</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /*  Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя
+        параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их
+        и возвращать результат.
+            Обязательно использовать оператор return. */
+
+        function _sum(a, b) {
+            return a + b;
+        }
+        function _subtraction(a, b) {
+            return a - b;
+        }
+        function _multiplication(a, b) {
+            return a * b;
+        }
+        function _division(a, b) {
+            return a / b;
+        }
+        var a = 10, b = 5;
+
+        console.log('Переменная а =', a, '\nПеременная b = ', b);
+        console.log('a + b =', _sum(a, b));
+        console.log('a - b =', _subtraction(a, b));
+        console.log('a * b =', _multiplication(a, b));
+        console.log('a / b =', _division(a, b));
+    </script>
+</body>
+
+</html>
