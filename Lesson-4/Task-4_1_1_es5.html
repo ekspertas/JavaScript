@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4_1_1_es5</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /*  Сделайте конструктор Product, который принимает параметры name
+            и price, сохраните их как свойства объекта. Также объекты типа Product должны иметь метод
+            make25PercentDiscount, который будет уменьшать цену в объекте на 25%. Имейте в виду, что метод
+            make25PercentDiscount не должен быть внутри функции-конструктора, и также не нужно создавать отдельный
+            объект-прототип (как объект transport в уроке). */
+
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        Product.prototype.make25PercentDiscount = function () {
+            this.price = this.price - this.price * 0.25;
+        };
+
+        let product1 = new Product('computer', 1000);
+        console.log(product1);
+        product1.make25PercentDiscount();
+        console.log(product1)
+    </script>
+</body>
+
+</html>

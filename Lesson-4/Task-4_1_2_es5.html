@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4_1_2_es5</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /*  Сделайте в стиле es5:
+            а) конструктор Post, который принимает параметры author, text, date и сохраняет их 
+            как свойства объекта. Объекты типа Post должны иметь метод edit, который будет принимать 
+            текст и записывать его в свойство text объекта.
+            б) конструктор AttachedPost, который принимает параметры author, text, date. Проинициализируйте 
+            эти свойства с помощью конструктора Post, чтобы не дублировать код. Также в конструкторе 
+            AttachedPost должно создаваться свойство highlighted со значением false. Унаследуйте в объектах 
+            типа AttachedPost методы из Post. Объекты типа AttachedPost должны иметь метод makeTextHighlighted, 
+            который будет назначать свойству highlighted значение true. */
+
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (someText) {
+            this.text = someText;
+        };
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        let somePost = new Post('Вася', 'Я гуляю', '31.12.2020');
+        console.log(somePost);
+        somePost.edit('Иду домой');
+        console.log(somePost);
+
+        let newAttachedPost = new AttachedPost('Петя', 'Я дома', '01.01.2021');
+        console.log(newAttachedPost);
+        newAttachedPost.edit('Я иду гулять');
+        console.log(newAttachedPost);
+        newAttachedPost.makeTextHighlighted();
+        console.log(newAttachedPost);
+    </script>
+</body>
+
+</html>
